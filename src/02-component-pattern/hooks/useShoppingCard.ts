@@ -18,22 +18,6 @@ export const useShoppingCard = () => {
     product: Product;
   }) => {
     setShoppingCart((oldShoppingCart) => {
-      const productInCart: PoductInCart = oldShoppingCart[product.id] || {
-        ...product,
-        count: 0,
-      };
-
-      if (Math.max(productInCart.count + count, 0) > 0) {
-        productInCart.count += count;
-        return {
-          ...oldShoppingCart,
-          [product.id]: productInCart,
-        };
-      }
-      const { [product.id]: toDelet, ...rest } = oldShoppingCart;
-      return rest;
-
-      /*
       if (count === 0) {
         const { [product.id]: toDelet, ...rest } = oldShoppingCart;
         return rest;
@@ -43,7 +27,6 @@ export const useShoppingCard = () => {
         ...oldShoppingCart,
         [product.id]: { ...product, count },
       };
-      */
     });
   };
 
