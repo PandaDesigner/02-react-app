@@ -1,19 +1,12 @@
-import {
-  ProductButtons,
-  ProductImage,
-  ProductTitle,
-  ProductCard,
-} from '../components';
+import { ProductCard } from '../components';
+import { products } from '../data/products';
+import { useShoppingCard } from '../hooks/useShoppingCard';
 
 import '../styles/custom-styles.css';
 
-const product = {
-  id: '1',
-  img: './coffee-mug.png',
-  title: 'Coffee Mug - Card',
-};
-
 export const ShoppingPages = () => {
+  const { onProductCoutChange, shoppingCart } = useShoppingCard();
+
   return (
     <div>
       <h1>Shopping Store</h1>
@@ -26,16 +19,37 @@ export const ShoppingPages = () => {
           gap: '1rem',
         }}
       >
-        <ProductCard product={product} className='bg-dark text-white'>
-          <ProductCard.Image imgs='' className='custom-image' />
-          <ProductCard.Title title='hola wey' className='text-bold' />
-          <ProductCard.Buttons className='custom-buttons' />
-        </ProductCard>
-        <ProductCard product={product} className='bg-dark text-white'>
-          <ProductImage className='custom-image' />
-          <ProductTitle className='text-bold' />
-          <ProductButtons className='custom-buttons' />
-        </ProductCard>
+        {products.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            className='bg-dark text-white'
+            onChange={onProductCoutChange}
+            value={shoppingCart[product.id]?.count || 0}
+          >
+            <ProductCard.Image imgs='' className='custom-image' />
+            <ProductCard.Title title='hola wey' className='text-bold' />
+            <ProductCard.Buttons className='custom-buttons' />
+          </ProductCard>
+        ))}
+      </div>
+
+      <div className='shopping-cart'>
+        {Object.entries(shoppingCart).map(([key, product]) => {
+          return (
+            <ProductCard
+              product={product}
+              className='bg-dark text-white'
+              style={{ width: '100px' }}
+              key={key}
+              value={product.count}
+              onChange={onProductCoutChange}
+            >
+              <ProductCard.Image imgs='' className='custom-image' />
+              <ProductCard.Buttons className='custom-buttons' />
+            </ProductCard>
+          );
+        })}
       </div>
     </div>
   );
