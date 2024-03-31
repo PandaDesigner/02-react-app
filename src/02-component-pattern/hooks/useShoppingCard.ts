@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Product } from '../interfaces/interfaces';
 
 interface PoductInCart extends Product {
-  count: number;
+  count?: number;
 }
 
 export const useShoppingCard = () => {
