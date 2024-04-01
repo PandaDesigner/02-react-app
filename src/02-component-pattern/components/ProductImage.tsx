@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import { CSSProperties, useContext } from 'react';
 import { ProductContext } from './ProductCard';
 import noImage from '../assets/no-image.jpg';
@@ -23,7 +24,6 @@ export const ProductImage = ({ imgs = '', className, style }: PropsImage) => {
   }
 
   return (
-    // eslint-disable-next-line jsx-a11y/img-redundant-alt
     <img
       className={`${styles.productImg} ${className}`}
       src={imgToShow}
