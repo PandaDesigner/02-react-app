@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import logo from '../logo.svg';
 import { LazyPage1, LazyPage2, LazyPage3 } from '../01-lazyload/pages/';
+import FormikBasicPage from '../03-forms/pages/FormikBasicPage';
 
 export const Navigation = () => {
   return (
@@ -17,18 +18,18 @@ export const Navigation = () => {
           <ul>
             <li>
               <NavLink
-                to='/'
+                to='/register'
                 className={({ isActive }) => (isActive ? 'nav-active' : '')}
               >
-                Home
+                Basic Formulario
               </NavLink>
             </li>
             <li>
               <NavLink
-                to='/about'
+                to='/formik-basic'
                 className={({ isActive }) => (isActive ? 'nav-active' : '')}
               >
-                About
+                Formik basic
               </NavLink>
             </li>
             <li>
@@ -43,8 +44,9 @@ export const Navigation = () => {
         </nav>
         <Routes>
           <Route path='/' element={<LazyPage1 />} />
-          <Route path='about' element={<LazyPage2 />} />
-          <Route path='user' element={<LazyPage3 />} />
+          <Route path='/register' element={<RegisterPage />} />
+          <Route path='/formik-basic' element={<FormikBasicPage />} />
+          <Route path='/user' element={<LazyPage3 />} />
           <Route path='/*' element={<Navigate to='/lazy1' replace />} />
         </Routes>
       </div>
