@@ -24,7 +24,7 @@ export const RegisterPage = () => {
                     className={`${formData.name.trim().length <= 0 && 'has-error'}`}
                 />
                 {formData.name.trim().length <= 0
-                    && < span > Este campo es necesario</span>}
+                    && < span > Este campo es necessary</span>}
                 <input
                     type="email"
                     placeholder="email"
@@ -35,7 +35,7 @@ export const RegisterPage = () => {
                     className={`${!isValidEmail(formData.email) && 'has-error'}`}
                 />
                 {!isValidEmail(formData.email)
-                    && < span > Este email no es valido</span>}
+                    && < span > Este email no es valid</span>}
                 <input
                     type="password"
                     placeholder="password"
