@@ -2,7 +2,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import '../styles/styles.css';
 
-export default function FormikComponents() {
+export function FormikComponents() {
 
     return (
         <div>

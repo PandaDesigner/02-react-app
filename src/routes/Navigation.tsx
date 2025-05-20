@@ -7,11 +7,14 @@ import {
 } from 'react-router-dom';
 import logo from '../logo.svg';
 import { LazyPage1, LazyPage3 } from '../01-lazyload/pages/';
-import { RegisterPage } from '../03-forms/pages';
-import FormikAbstractPage from '../03-forms/pages/FormikAbstractPage';
-import FormikBasicPage from '../03-forms/pages/FormikBasicPage';
-import FormikComponents from '../03-forms/pages/FormikComponents';
-import FormikYupPage from '../03-forms/pages/FormikYupPage';
+import {
+  RegisterPage,
+  FormikBasicPage,
+  FormikYupPage,
+  FormikComponents,
+  FormikAbstractPage
+} from '../03-forms/pages';
+
 
 export const Navigation = () => {
   return (

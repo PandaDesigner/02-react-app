@@ -2,7 +2,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import '../styles/styles.css';
 
-export default function FormikYupPage() {
+export function FormikYupPage() {
 
     const formik = useFormik({
         initialValues: {

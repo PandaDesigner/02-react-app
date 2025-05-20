@@ -5,7 +5,7 @@ import { MyTextInput, MyCheckbox, MySelectInput } from '../components';
 
 
 
-export default function FormikAbstractPage() {
+export function FormikAbstractPage() {
 
     return (
         <div>
