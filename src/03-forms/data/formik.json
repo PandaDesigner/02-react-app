@@ -1,0 +1,100 @@
+{
+  "formDynamic": [
+    {
+      "name": "fullName",
+      "type": "text",
+      "label": "Full Name",
+      "placeholder": "john doe",
+      "component": "input",
+      "value": "",
+      "validation": {
+        "type": "string",
+        "conditions": [
+          {
+            "type": "required",
+            "message": "This field first name is required"
+          },
+          {
+            "type": "minLength",
+            "value": 3,
+            "message": "This field must be at least 3 characters"
+          },
+          {
+            "type": "maxLength",
+            "value": 15,
+            "message": "This field must be at most 15 characters"
+          }
+        ]
+      },
+      "error": {
+        "name": "fullName",
+        "component": "span"
+      }
+    },
+    {
+      "name": "lastName",
+      "type": "text",
+      "label": "last Name",
+      "placeholder": "john doe",
+      "component": "input",
+      "value": "",
+      "validation": {
+        "type": "string",
+        "conditions": [
+          {
+            "type": "required",
+            "message": "This field last name is required"
+          },
+          {
+            "type": "minLength",
+            "value": 3,
+            "message": "This field must be at least 3 characters"
+          },
+          {
+            "type": "maxLength",
+            "value": 15,
+            "message": "This field must be at most 15 characters"
+          }
+        ]
+      },
+      "error": {
+        "name": "lastName",
+        "component": "span"
+      }
+    },
+    {
+      "name": "email",
+      "type": "email",
+      "label": "Email",
+      "placeholder": "johndoe@correo.com",
+      "component": "input",
+      "value": "",
+      "validation": {
+        "type": "email",
+        "conditions": [
+          {
+            "type": "required",
+            "message": "This field is required"
+          }
+        ]
+      },
+      "error": {
+        "name": "email",
+        "component": "span"
+      }
+    },
+    {
+      "type": "select",
+      "name": "favoriteGame",
+      "label": "Favorite Game",
+      "component": "select",
+      "value": "",
+      "options": [
+        { "id": 1, "value": "Super Smash" },
+        { "id": 2, "value": "Fifa" },
+        { "id": 3, "value": "Mortal Kombat" },
+        { "id": 4, "value": "Call of Duty" }
+      ]
+    }
+  ]
+}

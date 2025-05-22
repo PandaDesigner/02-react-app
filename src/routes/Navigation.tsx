@@ -12,8 +12,63 @@ import {
   FormikBasicPage,
   FormikYupPage,
   FormikComponents,
-  FormikAbstractPage
+  FormikAbstractPage,
+  RegisterFormikPage,
+  DynamicFormPage
 } from '../03-forms/pages';
+
+const treeRoutes = [
+  {
+    to: '/',
+    text: 'Home',
+    element: <LazyPage1 />
+  },
+  {
+    to: '/register',
+    text: 'Basic Formulary',
+    element: <RegisterPage />
+  },
+  {
+    to: '/formik-basic',
+    text: 'Formik basic',
+    element: <FormikBasicPage />
+  },
+  {
+    to: '/formik-yup',
+    text: 'Formik yup',
+    element: <FormikYupPage />
+  },
+  {
+    to: '/formik-components',
+    text: 'Formik Components',
+    element: <FormikComponents />
+  },
+  {
+    to: '/formik-abstract',
+    text: 'Formik Abstract Page',
+    element: <FormikAbstractPage />
+  },
+  {
+    to: '/register-formik',
+    text: 'Register Formik Page',
+    element: <RegisterFormikPage />
+  },
+  {
+    to: '/dynamic-formik',
+    text: 'Dynamic Formik',
+    element: <DynamicFormPage />
+  },
+  {
+    to: '/user',
+    text: 'User',
+    element: <LazyPage3 />
+  },
+  {
+    to: '/*',
+    text: 'Not Found',
+    element: <Navigate to='/lazy1' replace />
+  }
+];
 
 
 export const Navigation = () => {
@@ -23,65 +78,25 @@ export const Navigation = () => {
         <nav>
           <img src={logo} alt='React Logo' />
           <ul>
-            <li>
-              <NavLink
-                to='/register'
-                className={({ isActive }) => (isActive ? 'nav-active' : '')}
-              >
-                Basic Formulary
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to='/formik-basic'
-                className={({ isActive }) => (isActive ? 'nav-active' : '')}
-              >
-                Formik basic
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to='/formik-yup'
-                className={({ isActive }) => (isActive ? 'nav-active' : '')}
-              >
-                Formik yup
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to='/formik-components'
-                className={({ isActive }) => (isActive ? 'nav-active' : '')}
-              >
-                Formik Components
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to='/formik-abstract'
-                className={({ isActive }) => (isActive ? 'nav-active' : '')}
-              >
-                Formik Abstract Page
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to='/user'
-                className={({ isActive }) => (isActive ? 'nav-active' : '')}
-              >
-                User
-              </NavLink>
-            </li>
+            {treeRoutes.map(({ to, text }) => {
+              if (text === 'Not Found') return null;
+              return (
+                <li key={to}>
+                  <NavLink
+                    to={to}
+                    className={({ isActive }) => (isActive ? 'nav-active' : '')}
+                  >
+                    {text}
+                  </NavLink>
+                </li>
+              )
+            })}
           </ul>
         </nav>
         <Routes>
-          <Route path='/' element={<LazyPage1 />} />
-          <Route path='/register' element={<RegisterPage />} />
-          <Route path='/formik-basic' element={<FormikBasicPage />} />
-          <Route path='/formik-yup' element={<FormikYupPage />} />
-          <Route path='/formik-components' element={<FormikComponents />} />
-          <Route path='/formik-abstract' element={<FormikAbstractPage />} />
-          <Route path='/user' element={<LazyPage3 />} />
-          <Route path='/*' element={<Navigate to='/lazy1' replace />} />
+          {treeRoutes.map(({ to, element }) => (
+            <Route key={to} path={to} element={element} />
+          ))}
         </Routes>
       </div>
     </BrowserRouter>
